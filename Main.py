@@ -11,9 +11,13 @@ class Banco:
 
         self.nombre_banco = nombre_banco
 
+    def ahorro_dinero(self, cantidad: float, años: int) -> None:
+           
+
 class Negocio:
     def __init__(self, nombre_negocio: str, tipo_negocio: str) -> None:
 
         self.nombre_negocio: nombre_negocio
-        self.tipo_negocio: tipo_negocio
+        self.tipo_negocio: tipo_negocio    
+
 
