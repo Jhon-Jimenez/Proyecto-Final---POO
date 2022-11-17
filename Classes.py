@@ -77,7 +77,7 @@ def ingresar_dinero() -> None:
             print("La transacción hecha fue:\n")
             historial_transaccion = print("Ingreso: {}\nSaldo: {}".format(ingreso, nuevo.dinero))
             lista_movimientos.append(historial_transaccion)
-            print("Luego de la transacción su cuenta quedó asi:\n")
+            print("\nLuego de la transacción su cuenta quedó asi:\n")
             nuevo.ver_registros_usuarios()            
 
 def retirar_dinero() -> None:
@@ -93,14 +93,29 @@ def retirar_dinero() -> None:
             print("La transacción hecha fue:\n")
             historial_transaccion = print("Retiro: {}\nSaldo: {}".format(retiro, nuevo.dinero))
             lista_movimientos.append(historial_transaccion)
-            print("Luego de la transacción su cuenta quedó asi:\n")
+            print("\nLuego de la transacción su cuenta quedó asi:\n")
             nuevo.ver_registros_usuarios()
 
 def enviar_dinero() -> None:
     pass
 
-def ahorro_dinero(self, cantidad: float, años: int) -> None:
-   pass
+def ahorro_dinero(self, dinero: float, meses: int) -> float:
+   print("\nUsted seleccionó ahorrar su dinero")
+   num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
+
+   for nuevo in lista_usuarios:
+    if num_cuenta == nuevo.cc:
+        if self.dinero > nuevo.dinero:
+            raise Exception("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")    
+        interes = self.dinero * 0.10
+        ahorro = interes * meses
+        ahorro + nuevo.dinero
+        print("\nAhorro exitoso")
+        print("El ahorro hecho fue:\n")
+        historial_transaccion = print("Ahorro: {}\nSaldo: {}".format(ahorro, nuevo.dinero))
+        lista_movimientos.append(historial_transaccion)
+        print("\nLuego de la transacción su cuenta quedó asi:\n")
+        nuevo.ver_registros_usuarios()
 
 def ver_historial_movimientos() -> None:
     print("\nUsted seleccionó ver su historial de movimientos")
