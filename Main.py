@@ -16,11 +16,11 @@ def main() -> None:
         print("5. Retirar dinero")
         print("6. Enviar dinero a un amigo")
         print("7. Ahorrar dinero")
-        print("8. Ver el historial de transacciones")
-        print("9. Salir") 
+        print("8. Salir")
+
         opcion = int(input("\nIngrese el numero de una opción para relizar alguna operación especifica:\n"))
 
-        while opcion < 1 or opcion > 9:
+        while opcion < 1 or opcion > 8:
             print("\nEl valor ingresado es incorrecto, intentelo de nuevo")
             opcion = int(input("Ingrese el numero de una opción para relizar alguna operación especifica:\n"))
 
@@ -39,8 +39,6 @@ def main() -> None:
         elif opcion == 7:
             ahorro_dinero()
         elif opcion == 8:
-            ver_historial_movimientos()
-        elif opcion == 9:
             print("\nGracias por usar los servicios del banco Money House, su banco de confianza :)")
             quit()
 
