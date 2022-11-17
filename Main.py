@@ -1,4 +1,4 @@
-from Classes import Usuario, Banco, lista_usuarios, registrar_usuario, ver_lista_usuarios, buscar_usuario
+from Classes import Usuario, lista_usuarios, lista_movimientos, registrar_usuario, ver_lista_usuarios, buscar_usuario, ingresar_dinero, retirar_dinero, ver_historial_movimientos
 
 def main() -> None:
     sw = True
@@ -26,11 +26,11 @@ def main() -> None:
         elif opcion == 3:
             ver_lista_usuarios()
         elif opcion == 4:
-            pass
+            ingresar_dinero()
         elif opcion == 5:
-            pass
+            retirar_dinero
         elif opcion == 6:
-            pass 
+            ver_historial_movimientos()
 
         print("\n¿Quiere escoger otra opción?")
         cont = int(input("Ingrese 1 para si o 2 para no\n"))

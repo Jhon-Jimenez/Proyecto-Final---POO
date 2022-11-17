@@ -16,7 +16,13 @@ class Usuario:
         """
         Metodo para organizar y presentar los registros guardados para cada usuario registrado.
         """
-        print("Número de cuenta: {}-{} {}-Saldo: {} ".format(self.cc, self.nombre, self.apellido, self.dinero))  
+        print("Número de cuenta: {}-{} {}-Saldo: {} ".format(self.cc, self.nombre, self.apellido, self.dinero))
+
+    def ver_registros_historial(self) -> None:
+        """
+        Metodo para
+        """
+        print("Número de cuenta: {}-{} {}-Saldo: {} ".format(self.cc, self.nombre, self.apellido, self.dinero))      
 
 lista_usuarios = [] # Lista para almacenar los usuarios registrados
 
@@ -56,13 +62,7 @@ def buscar_usuario() -> None:
         if cc == nuevo.cc: # Se compara el número de cedula ingresado
             nuevo.ver_registros_usuarios() # Se llama al metodo ver_registros_usuarios para organizar y mostrar la información
 
-class Banco:
-    def __init__(self, ingreso: float, retiro: float) -> None:
-        self.ingreso = ingreso
-        self.retiro = retiro
-
-    def transaccion(self, ingreso: float, retiro: float) -> None:
-        pass    
+lista_movimientos = []
 
 def ingresar_dinero() -> None:
     print("\nUsted seleccionó ingresar dinero a su cuenta")
@@ -74,6 +74,9 @@ def ingresar_dinero() -> None:
             print("Iniciando transacción...\n")
             ingreso + nuevo.dinero
             print("\nTransacción exitosa")
+            print("La transacción hecha fue:\n")
+            historial_transaccion = print("Ingreso: {}\nSaldo: {}".format(ingreso, nuevo.dinero))
+            lista_movimientos.append(historial_transaccion)
             print("Luego de la transacción su cuenta quedó asi:\n")
             nuevo.ver_registros_usuarios()            
 
@@ -87,14 +90,26 @@ def retirar_dinero() -> None:
             print("Iniciando transacción...\n")
             retiro - nuevo.dinero
             print("\nTransacción exitosa")
+            print("La transacción hecha fue:\n")
+            historial_transaccion = print("Retiro: {}\nSaldo: {}".format(retiro, nuevo.dinero))
+            lista_movimientos.append(historial_transaccion)
             print("Luego de la transacción su cuenta quedó asi:\n")
             nuevo.ver_registros_usuarios()
+
+def enviar_dinero() -> None:
+    pass
 
 def ahorro_dinero(self, cantidad: float, años: int) -> None:
    pass
 
 def ver_historial_movimientos() -> None:
-    pass
+    print("\nUsted seleccionó ver su historial de movimientos")
+    num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
+
+    for nuevo in lista_usuarios:
+        if num_cuenta == nuevo.cc:
+            for historial_transaccion in lista_movimientos:
+                print("Movimiento:{}".format(historial_transaccion))
 
         
             
