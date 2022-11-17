@@ -96,8 +96,30 @@ def retirar_dinero() -> None:
             print("\nLuego de la transacción su cuenta quedó asi:\n")
             nuevo.ver_registros_usuarios()
 
-def enviar_dinero() -> None:
-    pass
+def enviar_dinero(self, dinero: float) -> None:
+   num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
+   num_cuenta_amigo = int(input("Ingrese el número de cuenta o la cedula de su amigo\n"))
+
+   for nuevo in lista_usuarios:
+    if num_cuenta == nuevo.cc:
+        if self.dinero > nuevo.dinero:
+            raise Exception("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")
+        self.dinero - nuevo.dinero
+        print("\nTransacción exitosa")
+        print("La transacción hecha fue:\n")
+        historial_transaccion = print("Retiro: {}\nSaldo: {}".format(self.dinero, nuevo.dinero))
+        lista_movimientos.append(historial_transaccion)
+        print("\nLuego de la transacción su cuenta quedó asi:\n")
+        nuevo.ver_registros_usuarios()
+
+    if num_cuenta_amigo == nuevo.cc:
+        self.dinero + nuevo.dinero
+        print("\nTransacción exitosa")
+        print("La transacción hecha fue:\n")
+        historial_transaccion = print("Ingreso: {}\nSaldo: {}".format(self.dinero, nuevo.dinero))
+        lista_movimientos.append(historial_transaccion)
+        print("\nLuego de la transacción la cuenta de su amigo quedó asi:\n")
+        nuevo.ver_registros_usuarios()
 
 def ahorro_dinero(self, dinero: float, meses: int) -> float:
    print("\nUsted seleccionó ahorrar su dinero")
@@ -114,7 +136,7 @@ def ahorro_dinero(self, dinero: float, meses: int) -> float:
         print("El ahorro hecho fue:\n")
         historial_transaccion = print("Ahorro: {}\nSaldo: {}".format(ahorro, nuevo.dinero))
         lista_movimientos.append(historial_transaccion)
-        print("\nLuego de la transacción su cuenta quedó asi:\n")
+        print("\nLuego del ahorro su cuenta quedó asi:\n")
         nuevo.ver_registros_usuarios()
 
 def ver_historial_movimientos() -> None:

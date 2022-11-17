@@ -1,4 +1,4 @@
-from Classes import Usuario, lista_usuarios, lista_movimientos, registrar_usuario, ver_lista_usuarios, buscar_usuario, ingresar_dinero, retirar_dinero, ver_historial_movimientos
+from Classes import Usuario, lista_usuarios, lista_movimientos, registrar_usuario, ver_lista_usuarios, buscar_usuario, ingresar_dinero, retirar_dinero, enviar_dinero, ahorro_dinero, ver_historial_movimientos
 
 def main() -> None:
     sw = True
@@ -12,7 +12,7 @@ def main() -> None:
         print("3. Ver la lista de usuarios")
         print("4. Ingresar dinero")
         print("5. Retirar dinero")
-        print("6. ")
+        print("6. Enviar dinero a un amigo")
         print("7. Ahorrar dinero")
         print("8. Ver el historial de transacciones")
         opcion = int(input("\nIngrese el numero de una opción para relizar alguna operación especifica:\n"))
@@ -30,14 +30,21 @@ def main() -> None:
         elif opcion == 4:
             ingresar_dinero()
         elif opcion == 5:
-            retirar_dinero
+            retirar_dinero()
         elif opcion == 6:
-            pass
+            print("\nTenga en cuenta que para utilizar esta opción su amigo debe estar registrado como un usuario en nuestro banco\n")
+            cont2 = int(input("¿Aún asi desea continuar? Ingrese 1 para si o 2 para no\n"))
+            if cont2 == 1:
+                print("\nUsted seleccionó enviar dinero a un amigo.")
+                dinero = float(input("Ingrese la cantidad de dinero que va a enviar a su amigo. Tenga en cuenta que esta cantidad de dinero debe ser menor o igual a la que tiene en su cuenta\n"))
+            else:
+                quit()
+            enviar_dinero(dinero)
         elif opcion == 7:
             print("\nPara utilizar esta opción ingrese:\n")
             dinero = float(input("La cantidad de dinero que va ahorrar. Tenga en cuenta que esta cantidad de dinero debe ser menor o igual a la que tiene en su cuenta\n"))
             meses = int(input("La cantidad de meses que va a ahorrar su dinero. Tenga en cuenta que mientras sean más meses mayor será su ganancia\n"))
-
+            ahorro_dinero(dinero, meses)
         elif opcion == 8:
             ver_historial_movimientos()
 
