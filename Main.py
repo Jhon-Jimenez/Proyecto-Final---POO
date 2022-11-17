@@ -35,15 +35,9 @@ def main() -> None:
         elif opcion == 5:
             retirar_dinero()
         elif opcion == 6:
-            print("\nTenga en cuenta que para utilizar esta opción su amigo debe estar registrado como un usuario en nuestro banco\n")
-            print("\nUsted seleccionó enviar dinero a un amigo.")
-            dinero_envio = float(input("Ingrese la cantidad de dinero que va a enviar a su amigo. Tenga en cuenta que esta cantidad de dinero debe ser menor o igual a la que tiene en su cuenta\n"))
-            enviar_dinero(dinero_envio)
+            enviar_dinero()
         elif opcion == 7:
-            print("\nPara utilizar esta opción ingrese:\n")
-            dinero_ahorro = float(input("La cantidad de dinero que va ahorrar. Tenga en cuenta que esta cantidad de dinero debe ser menor o igual a la que tiene en su cuenta\n"))
-            meses_ahorro = int(input("La cantidad de meses que va a ahorrar su dinero. Tenga en cuenta que mientras sean más meses mayor será su ganancia\n"))
-            ahorro_dinero(dinero_ahorro, meses_ahorro)
+            ahorro_dinero()
         elif opcion == 8:
             ver_historial_movimientos()
         elif opcion == 9:

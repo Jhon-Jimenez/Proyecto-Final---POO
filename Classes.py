@@ -84,7 +84,7 @@ def ingresar_dinero() -> None:
             nuevo.dinero += ingreso
             print("\nTransacción exitosa")
             print("La transacción hecha fue:\n")
-            historial_transaccion = print("Ingreso: {}\nSaldo: {}".format(ingreso, nuevo.dinero))
+            historial_transaccion = print("Ingreso: {} - Saldo: {}".format(ingreso, nuevo.dinero))
             lista_movimientos.append(historial_transaccion)
             print("\nLuego de la transacción su cuenta quedó asi:\n")
             nuevo.ver_registros_usuarios()            
@@ -102,56 +102,62 @@ def retirar_dinero() -> None:
             nuevo.dinero -= retiro
             print("\nTransacción exitosa")
             print("La transacción hecha fue:\n")
-            historial_transaccion = print("Retiro: {}\nSaldo: {}".format(retiro, nuevo.dinero))
+            historial_transaccion = print("Retiro: {} - Saldo: {}".format(retiro, nuevo.dinero))
             lista_movimientos.append(historial_transaccion)
             print("\nLuego de la transacción su cuenta quedó asi:\n")
             nuevo.ver_registros_usuarios()
 
-def enviar_dinero(self, dinero: float) -> None:
+def enviar_dinero() -> None:
    """
     Metodo para enviar dinero a la cuenta registrada de un amigo
-   """ 
+   """
+   print("Usted seleccionó enviar dinero a un amigo.") 
+   print("\nTenga en cuenta que para utilizar esta opción su amigo debe estar registrado como un usuario en nuestro banco\n")
    num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
    num_cuenta_amigo = int(input("Ingrese el número de cuenta o la cedula de su amigo\n"))
+   dinero_envio = float(input("Ingrese la cantidad de dinero que va a enviar a su amigo. Tenga en cuenta que esta cantidad de dinero debe ser menor o igual a la que tiene en su cuenta\n"))
 
    for nuevo in lista_usuarios:
     if num_cuenta == nuevo.cc:
-        if self.dinero > nuevo.dinero:
+        if dinero_envio > nuevo.dinero:
             raise Exception("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")
-        nuevo.dinero -= self.dinero
+        nuevo.dinero -= dinero_envio
         print("\nTransacción exitosa")
         print("La transacción hecha fue:\n")
-        historial_transaccion = print("Retiro: {}\nSaldo: {}".format(self.dinero, nuevo.dinero))
+        historial_transaccion = print("Retiro: {} - Saldo: {}".format(dinero_envio, nuevo.dinero))
         lista_movimientos.append(historial_transaccion)
         print("\nLuego de la transacción su cuenta quedó asi:\n")
         nuevo.ver_registros_usuarios()
 
     if num_cuenta_amigo == nuevo.cc:
-        nuevo.dinero += self.dinero
+        nuevo.dinero += dinero_envio
         print("\nTransacción exitosa")
         print("La transacción hecha fue:\n")
-        historial_transaccion = print("Ingreso: {}\nSaldo: {}".format(self.dinero, nuevo.dinero))
+        historial_transaccion = print("Ingreso: {} - Saldo: {}".format(dinero_envio, nuevo.dinero))
         lista_movimientos.append(historial_transaccion)
         print("\nLuego de la transacción la cuenta de su amigo quedó asi:\n")
         nuevo.ver_registros_usuarios()
 
-def ahorro_dinero(self, dinero: float, meses: int) -> None:
+def ahorro_dinero() -> None:
    """
     Metodo para calcular el interes al ahorrar una cantidad de dinero por una cantidad de meses
    """
    print("\nUsted seleccionó ahorrar su dinero")
-   num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
+   print("\nPara utilizar esta opción ingrese:\n")
+   num_cuenta = int(input("Su número de cuenta o su cedula\n"))
+   dinero_ahorro = float(input("La cantidad de dinero que va ahorrar. Tenga en cuenta que esta cantidad de dinero debe ser menor o igual a la que tiene en su cuenta\n"))
+   meses_ahorro = int(input("La cantidad de meses que va a ahorrar su dinero. Tenga en cuenta que mientras sean más meses mayor será su ganancia\n"))
 
    for nuevo in lista_usuarios:
     if num_cuenta == nuevo.cc:
-        if self.dinero > nuevo.dinero:
+        if dinero_ahorro > nuevo.dinero:
             raise Exception("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")    
-        interes = self.dinero * 0.10
-        ahorro = interes * meses
+        interes = dinero_ahorro * 0.10
+        ahorro = interes * meses_ahorro
         nuevo.dinero += ahorro
         print("\nAhorro exitoso")
         print("El ahorro hecho fue:\n")
-        historial_transaccion = print("Ahorro: {}\nSaldo: {}".format(ahorro, nuevo.dinero))
+        historial_transaccion = print("Ahorro: {} - Saldo: {}".format(ahorro, nuevo.dinero))
         lista_movimientos.append(historial_transaccion)
         print("\nLuego del ahorro su cuenta quedó asi:\n")
         nuevo.ver_registros_usuarios()
