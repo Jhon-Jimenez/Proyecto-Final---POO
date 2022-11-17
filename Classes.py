@@ -24,8 +24,7 @@ def registrar_usuario() -> None:
     """
     Metodo para registrar nuevos usuarios.
     """
-    print("\nHola usuario")
-    print("Usted seleccionó registrar un nuevo usuario")
+    print("\nUsted seleccionó registrar un nuevo usuario")
     print("Por favor ingrese los siguientes datos:")
     nombre = str(input("\nIngrese su nombre\n"))
     apellido = str(input("\nIngrese su apellido\n"))
@@ -50,29 +49,53 @@ def buscar_usuario() -> None:
     """
     Metodo para buscar un usuario por medio de número de cedula
     """
-    print("\nHola usuario")
-    print("Usted seleccionó buscar usuario")
-    cc = int(input("Ingrese el número de cuenta o cedula del usuario a buscar\n"))
+    print("\nUsted seleccionó buscar usuario")
+    cc = int(input("Ingrese el número de cuenta o la cedula del usuario a buscar\n"))
 
     for nuevo in lista_usuarios: # Se recorre la lista de usuarios con un for
         if cc == nuevo.cc: # Se compara el número de cedula ingresado
-            nuevo.registros_usuarios() # Se llama al metodo ver_registros_usuarios para organizar y mostrar la información
+            nuevo.ver_registros_usuarios() # Se llama al metodo ver_registros_usuarios para organizar y mostrar la información
 
 class Banco:
     def __init__(self, ingreso: float, retiro: float) -> None:
         self.ingreso = ingreso
         self.retiro = retiro
 
+    def transaccion(self, ingreso: float, retiro: float) -> None:
+        pass    
 
+def ingresar_dinero() -> None:
+    print("\nUsted seleccionó ingresar dinero a su cuenta")
+    num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
+    
+    for nuevo in lista_usuarios:
+        if num_cuenta == nuevo.cc:
+            ingreso = float(input("\nIngrese el valor a consignar en su cuenta"))
+            print("Iniciando transacción...\n")
+            ingreso + nuevo.dinero
+            print("\nTransacción exitosa")
+            print("Luego de la transacción su cuenta quedó asi:\n")
+            nuevo.ver_registros_usuarios()            
+
+def retirar_dinero() -> None:
+    print("\nUsted seleccionó retirar dinero a su cuenta")
+    num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
+    
+    for nuevo in lista_usuarios:
+        if num_cuenta == nuevo.cc:
+            retiro = float(input("\nIngrese el valor a retirar en su cuenta"))
+            print("Iniciando transacción...\n")
+            retiro - nuevo.dinero
+            print("\nTransacción exitosa")
+            print("Luego de la transacción su cuenta quedó asi:\n")
+            nuevo.ver_registros_usuarios()
 
 def ahorro_dinero(self, cantidad: float, años: int) -> None:
-           pass
+   pass
 
-class Negocio:
-    def __init__(self, nombre_negocio: str, tipo_negocio: str) -> None:
+def ver_historial_movimientos() -> None:
+    pass
 
-        self.nombre_negocio: nombre_negocio
-        self.tipo_negocio: tipo_negocio
         
             
 

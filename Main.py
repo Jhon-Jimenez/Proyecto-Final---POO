@@ -1,4 +1,4 @@
-from Classes import lista_usuarios, registrar_usuario, ver_lista_usuarios, buscar_usuario
+from Classes import Usuario, Banco, lista_usuarios, registrar_usuario, ver_lista_usuarios, buscar_usuario
 
 def main() -> None:
     sw = True
