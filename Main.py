@@ -1,23 +1,13 @@
 
-class Usuario:
-    def __init__(self, nombre: str, cc: str, dinero: float) -> None:
+class Main:
+    def __init__(self) -> None:
+        pass
+    
+    def main() -> None:
+        print("Bienvenido usuario")
+        print("Esta es mi app de simulación de banco: Money House")
+        print("¿Que te gustaria hacer hoy?")
+        opcion = int(input("Ingrese el numero de una opción para relizar alguna operación especifica:"))
 
-        self.nombre = nombre
-        self.cc = cc
-        self.dinero = dinero
-
-class Banco:
-    def __init__(self, nombre_banco: str) -> None:
-
-        self.nombre_banco = nombre_banco
-
-    def ahorro_dinero(self, cantidad: float, años: int) -> None:
-           
-
-class Negocio:
-    def __init__(self, nombre_negocio: str, tipo_negocio: str) -> None:
-
-        self.nombre_negocio: nombre_negocio
-        self.tipo_negocio: tipo_negocio    
-
-
+        while opcion < 1 or opcion > 6:
+            print("El valor ingresado es incorrecto, intentelo de nuevo")
