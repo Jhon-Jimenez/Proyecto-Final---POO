@@ -1,6 +1,9 @@
-    
+from Classes import lista_usuarios, registrar_usuario, ver_lista_usuarios, buscar_usuario
+
 def main() -> None:
-        print("Bienvenido usuario :)")
+    sw = True
+    while sw == True:
+        print("\nBienvenido usuario :)")
         print("Esta es mi app de simulación de un banco: Money House")
         print("")
         print("¿Que te gustaria hacer hoy?")
@@ -17,17 +20,26 @@ def main() -> None:
             opcion = int(input("Ingrese el numero de una opción para relizar alguna operación especifica:\n"))
 
         if opcion == 1:
-            pass
+            registrar_usuario()
         elif opcion == 2:
-            pass
+            buscar_usuario()
         elif opcion == 3:
-            pass
+            ver_lista_usuarios()
         elif opcion == 4:
             pass
         elif opcion == 5:
             pass
         elif opcion == 6:
-            pass   
+            pass 
+
+        print("\n¿Quiere escoger otra opción?")
+        cont = int(input("Ingrese 1 para si o 2 para no\n"))
+        if cont == 2:
+            sw = False
+        else:
+            while cont < 1 or cont > 2:
+                print("\nEl valor ingresado es incorrecto, ingrese solo 1 o 2")
+                cont = int(input("Ingrese 1 para si o 2 para no\n")) 
 
 if __name__ == '__main__':
     main()            
