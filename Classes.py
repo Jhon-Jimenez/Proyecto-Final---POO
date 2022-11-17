@@ -81,6 +81,9 @@ def ingresar_dinero() -> None:
     for nuevo in lista_usuarios:
         if num_cuenta == nuevo.cc:
             ingreso = float(input("\nIngrese el valor a consignar en su cuenta\n"))
+            while ingreso < 0:
+                print("\nEl valor ingresado es incorrecto, ingrese un valor positivo")
+                ingreso = float(input("\nIngrese el valor a consignar en su cuenta\n"))
             nuevo.dinero += ingreso
             print("\nTransacción exitosa")
             print("La transacción hecha fue:\n")
@@ -99,6 +102,9 @@ def retirar_dinero() -> None:
     for nuevo in lista_usuarios:
         if num_cuenta == nuevo.cc:
             retiro = float(input("\nIngrese el valor a retirar en su cuenta\n"))
+            while retiro > nuevo.dinero:
+                print("\nEl valor ingresado es incorrecto, ingrese un valor menor al que tiene en la cuenta")
+                retiro = float(input("\nIngrese el valor a retirar en su cuenta\n"))
             nuevo.dinero -= retiro
             print("\nTransacción exitosa")
             print("La transacción hecha fue:\n")
@@ -119,13 +125,14 @@ def enviar_dinero() -> None:
 
    for nuevo in lista_usuarios:
     if num_cuenta == nuevo.cc:
-        if dinero_envio > nuevo.dinero:
-            raise Exception("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")
+        while dinero_envio > nuevo.dinero:
+                print("\nLo sentimos, la cantidad de dinero asignada para enviar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")
+                dinero_envio = float(input("Ingrese la cantidad de dinero que va a enviar a su amigo. Tenga en cuenta que esta cantidad de dinero debe ser menor o igual a la que tiene en su cuenta\n"))
         nuevo.dinero -= dinero_envio
         print("\nTransacción exitosa")
         print("La transacción hecha fue:\n")
-        historial_transaccion = print("Retiro: {} - Saldo: {}".format(dinero_envio, nuevo.dinero))
-        lista_movimientos.append(historial_transaccion)
+        #historial_transaccion = print("Retiro: {} - Saldo: {}".format(dinero_envio, nuevo.dinero))
+        #lista_movimientos.append(historial_transaccion)
         print("\nLuego de la transacción su cuenta quedó asi:\n")
         nuevo.ver_registros_usuarios()
 
@@ -133,8 +140,8 @@ def enviar_dinero() -> None:
         nuevo.dinero += dinero_envio
         print("\nTransacción exitosa")
         print("La transacción hecha fue:\n")
-        historial_transaccion = print("Ingreso: {} - Saldo: {}".format(dinero_envio, nuevo.dinero))
-        lista_movimientos.append(historial_transaccion)
+        #historial_transaccion = print("Ingreso: {} - Saldo: {}".format(dinero_envio, nuevo.dinero))
+        #lista_movimientos.append(historial_transaccion)
         print("\nLuego de la transacción la cuenta de su amigo quedó asi:\n")
         nuevo.ver_registros_usuarios()
 
@@ -150,15 +157,16 @@ def ahorro_dinero() -> None:
 
    for nuevo in lista_usuarios:
     if num_cuenta == nuevo.cc:
-        if dinero_ahorro > nuevo.dinero:
-            raise Exception("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")    
+        while dinero_ahorro > nuevo.dinero:
+            print("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")
+            dinero_ahorro = float(input("La cantidad de dinero que va ahorrar. Tenga en cuenta que esta cantidad de dinero debe ser menor o igual a la que tiene en su cuenta\n"))
         interes = dinero_ahorro * 0.10
         ahorro = interes * meses_ahorro
         nuevo.dinero += ahorro
         print("\nAhorro exitoso")
         print("El ahorro hecho fue:\n")
-        historial_transaccion = print("Ahorro: {} - Saldo: {}".format(ahorro, nuevo.dinero))
-        lista_movimientos.append(historial_transaccion)
+        #historial_transaccion = print("Ahorro: {} - Saldo: {}".format(ahorro, nuevo.dinero))
+        #lista_movimientos.append(historial_transaccion)
         print("\nLuego del ahorro su cuenta quedó asi:\n")
         nuevo.ver_registros_usuarios()
 
