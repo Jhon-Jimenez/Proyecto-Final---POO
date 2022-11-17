@@ -16,13 +16,7 @@ class Usuario:
         """
         Metodo para organizar y presentar los registros guardados para cada usuario registrado.
         """
-        print("Número de cuenta: {}-{} {}-Saldo: {} ".format(self.cc, self.nombre, self.apellido, self.dinero))
-
-    def ver_registros_historial(self) -> None:
-        """
-        Metodo para
-        """
-        print("Número de cuenta: {}-{} {}-Saldo: {} ".format(self.cc, self.nombre, self.apellido, self.dinero))      
+        print("Número de cuenta: {}-{} {}-Saldo: {} ".format(self.cc, self.nombre, self.apellido, self.dinero))   
 
 lista_usuarios = [] # Lista para almacenar los usuarios registrados
 
