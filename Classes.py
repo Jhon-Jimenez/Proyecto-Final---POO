@@ -45,10 +45,12 @@ def ver_lista_usuarios() -> None:
     """
     Metodo para ver la lista de usuarios guardados
     """
-    print("\nHola usuario")
-    print("Usted seleccionó ver la lista de usuarios registrados\n")
+    print("\nUsted seleccionó ver la lista de usuarios registrados\n")
 
     for nuevo in lista_usuarios: # Se recorre la lista de usuarios con un for
+        if len(lista_usuarios) == 0:
+            print("Lo sentimos :(")
+            print("La lista de usuarios está vacia. Intenta agregar un nuevo usuario ;)")
         nuevo.ver_registros_usuarios() # Se llama al metodo ver_registros_usuarios para organizar y mostrar la información
         
 def buscar_usuario() -> None:
@@ -60,7 +62,12 @@ def buscar_usuario() -> None:
 
     for nuevo in lista_usuarios: # Se recorre la lista de usuarios con un for
         if cc == nuevo.cc: # Se compara el número de cedula ingresado
+            print("")
             nuevo.ver_registros_usuarios() # Se llama al metodo ver_registros_usuarios para organizar y mostrar la información
+            break
+        else:
+            print("Lo sentimos :(")
+            print("El número de cuenta ingresado no se encuentrado registrado en nuestro sistema")    
 
 lista_movimientos = [] # Lista para almacenar los movimientos de los usuarios
 
@@ -73,9 +80,8 @@ def ingresar_dinero() -> None:
     
     for nuevo in lista_usuarios:
         if num_cuenta == nuevo.cc:
-            ingreso = float(input("\nIngrese el valor a consignar en su cuenta"))
-            print("Iniciando transacción...\n")
-            ingreso + nuevo.dinero
+            ingreso = float(input("\nIngrese el valor a consignar en su cuenta\n"))
+            nuevo.dinero += ingreso
             print("\nTransacción exitosa")
             print("La transacción hecha fue:\n")
             historial_transaccion = print("Ingreso: {}\nSaldo: {}".format(ingreso, nuevo.dinero))
@@ -92,9 +98,8 @@ def retirar_dinero() -> None:
     
     for nuevo in lista_usuarios:
         if num_cuenta == nuevo.cc:
-            retiro = float(input("\nIngrese el valor a retirar en su cuenta"))
-            print("Iniciando transacción...\n")
-            retiro - nuevo.dinero
+            retiro = float(input("\nIngrese el valor a retirar en su cuenta\n"))
+            nuevo.dinero -= retiro
             print("\nTransacción exitosa")
             print("La transacción hecha fue:\n")
             historial_transaccion = print("Retiro: {}\nSaldo: {}".format(retiro, nuevo.dinero))
@@ -113,7 +118,7 @@ def enviar_dinero(self, dinero: float) -> None:
     if num_cuenta == nuevo.cc:
         if self.dinero > nuevo.dinero:
             raise Exception("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")
-        self.dinero - nuevo.dinero
+        nuevo.dinero -= self.dinero
         print("\nTransacción exitosa")
         print("La transacción hecha fue:\n")
         historial_transaccion = print("Retiro: {}\nSaldo: {}".format(self.dinero, nuevo.dinero))
@@ -122,7 +127,7 @@ def enviar_dinero(self, dinero: float) -> None:
         nuevo.ver_registros_usuarios()
 
     if num_cuenta_amigo == nuevo.cc:
-        self.dinero + nuevo.dinero
+        nuevo.dinero += self.dinero
         print("\nTransacción exitosa")
         print("La transacción hecha fue:\n")
         historial_transaccion = print("Ingreso: {}\nSaldo: {}".format(self.dinero, nuevo.dinero))
@@ -143,7 +148,7 @@ def ahorro_dinero(self, dinero: float, meses: int) -> None:
             raise Exception("\nLo sentimos, la cantidad de dinero asignada para ahorrar es mayor a la que tiene en su cuenta. Vuelva a intentarlo\n")    
         interes = self.dinero * 0.10
         ahorro = interes * meses
-        ahorro + nuevo.dinero
+        nuevo.dinero += ahorro
         print("\nAhorro exitoso")
         print("El ahorro hecho fue:\n")
         historial_transaccion = print("Ahorro: {}\nSaldo: {}".format(ahorro, nuevo.dinero))
@@ -161,7 +166,7 @@ def ver_historial_movimientos() -> None:
     for nuevo in lista_usuarios:
         if num_cuenta == nuevo.cc:
             for historial_transaccion in lista_movimientos:
-                print("Movimiento:{}".format(historial_transaccion))
+                print("Movimiento:\n{}".format(historial_transaccion))
 
         
             
