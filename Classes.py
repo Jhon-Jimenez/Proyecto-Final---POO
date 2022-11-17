@@ -62,9 +62,12 @@ def buscar_usuario() -> None:
         if cc == nuevo.cc: # Se compara el número de cedula ingresado
             nuevo.ver_registros_usuarios() # Se llama al metodo ver_registros_usuarios para organizar y mostrar la información
 
-lista_movimientos = []
+lista_movimientos = [] # Lista para almacenar los movimientos de los usuarios
 
 def ingresar_dinero() -> None:
+    """
+    Metodo para ingresar dinero a la cuenta de un usuario
+    """
     print("\nUsted seleccionó ingresar dinero a su cuenta")
     num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
     
@@ -81,7 +84,10 @@ def ingresar_dinero() -> None:
             nuevo.ver_registros_usuarios()            
 
 def retirar_dinero() -> None:
-    print("\nUsted seleccionó retirar dinero a su cuenta")
+    """
+    Metodo para retirar dinero de la cuenta de un usuario
+    """
+    print("\nUsted seleccionó retirar dinero de su cuenta")
     num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
     
     for nuevo in lista_usuarios:
@@ -97,6 +103,9 @@ def retirar_dinero() -> None:
             nuevo.ver_registros_usuarios()
 
 def enviar_dinero(self, dinero: float) -> None:
+   """
+    Metodo para enviar dinero a la cuenta registrada de un amigo
+   """ 
    num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
    num_cuenta_amigo = int(input("Ingrese el número de cuenta o la cedula de su amigo\n"))
 
@@ -121,7 +130,10 @@ def enviar_dinero(self, dinero: float) -> None:
         print("\nLuego de la transacción la cuenta de su amigo quedó asi:\n")
         nuevo.ver_registros_usuarios()
 
-def ahorro_dinero(self, dinero: float, meses: int) -> float:
+def ahorro_dinero(self, dinero: float, meses: int) -> None:
+   """
+    Metodo para calcular el interes al ahorrar una cantidad de dinero por una cantidad de meses
+   """
    print("\nUsted seleccionó ahorrar su dinero")
    num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
 
@@ -140,6 +152,9 @@ def ahorro_dinero(self, dinero: float, meses: int) -> float:
         nuevo.ver_registros_usuarios()
 
 def ver_historial_movimientos() -> None:
+    """
+    Metodo para buscar y mostrar el historial de movimientos de la cuenta de un usuario registrado
+    """
     print("\nUsted seleccionó ver su historial de movimientos")
     num_cuenta = int(input("Ingrese su número de cuenta o su cedula\n"))
 
