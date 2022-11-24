@@ -1,0 +1,25 @@
+@startuml uml
+
+class Usuario {
+nombre: str
+apellido: str
+cc: int
+dinero: float
+registrar_usuario()
+ver_lista_usuarios()
+buscar_usuario()
+}
+
+class Banco {
+nombre_banco: str
+dinero: float
+ingresar_dinero()
+retirar_dinero()
+enviar_dinero()
+ahorro_dinero()
+ver_historial_movimientos()
+}
+
+Banco "1" --* "*" Usuario
+
+@enduml
