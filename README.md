@@ -10,3 +10,6 @@ Así nació la idea para crear este proyecto de simluación de banco llamado Mon
 Documento del proyecto: 
 
 https://uninorte-my.sharepoint.com/:w:/g/personal/zuletajj_uninorte_edu_co/EUOxq8qfrYRAuXpHxkKyjOMB9yHj1PHuaiF_RSYzAHVf5w?e=tBBnd5 
+
+Link video - Youtube:
+https://youtu.be/rbCviICiIko 
